@@ -8,21 +8,26 @@ export const addTodo = input => ({
   type: ADD_TO_DO,
   id: id++,
   todo: input,
-  completed: false
+  completed: false,
 })
 
-export const toggleTodo = id => ({
+export const toggleTodo = uid => ({
   type: TOGGLE_TO_DO,
-  id
+  uid,
 })
 
 export const STATUS = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
+  SHOW_ACTIVE: 'SHOW_ACTIVE',
 }
 
 export const setStatus = status => ({
   type: SET_STATUS,
-  status
+  status,
+})
+
+export const editTop = input => ({
+  type: 'EDIT_TOP',
+  top: input,
 })

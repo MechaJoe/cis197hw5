@@ -1,6 +1,6 @@
-const default_state = []
-
 import { ADD_TO_DO, TOGGLE_TO_DO } from '../actions'
+
+const default_state = []
 
 const PostReducer = (state = default_state, action) => {
   const { type, id, todo, completed } = action

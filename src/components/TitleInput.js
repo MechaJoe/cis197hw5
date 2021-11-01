@@ -9,13 +9,13 @@ const TitleInput = ({ dispatchAddToDo }) => {
   return (
     <>
       <input onChange={e => setText(e.target.value)} />
-      <button onClick={() => dispatchAddToDo(text)}> Save </button>
+      <button type="button" onSubmit={() => dispatchEdit(text)}> Save </button>
     </>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchAddToDo: input => dispatch(addTodo(input))
+  dispatchAddToDo: input => dispatch(addTodo(input)),
 })
 
 export default connect(null, mapDispatchToProps)(TitleInput)

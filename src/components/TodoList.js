@@ -17,17 +17,23 @@ const filterTodos = (filter, todos) => {
 
 const TodoList = ({ todos, status, dispatchToggleToDo }) => (
   <>
-    {filterTodos(status, todos).map(todo => <div style={{ textDecoration: todo.completed ? 'line-through' : 'none' }} onClick={() => dispatchToggleToDo(todo.id)} > {todo.todo} </div>)}
+    {filterTodos(status, todos).map(todo => (
+      <div style={{ textDecoration: todo.completed ? 'line-through' : 'none' }} onClick={() => dispatchToggleToDo(todo.id)}>
+        {' '}
+        {todo.todo}
+        {' '}
+      </div>
+    ))}
   </>
 )
 
 const mapStateToProps = state => ({
   todos: state.todos,
-  status: state.status
+  status: state.status,
 })
 
 const mapDispatchToProps = dispatch => ({
-  dispatchToggleToDo: id => dispatch(toggleTodo(id))
+  dispatchToggleToDo: id => dispatch(toggleTodo(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

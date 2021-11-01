@@ -1,9 +1,10 @@
 const TitleReducer = (state = {}, action) => {
-  switch (action.type) {
+  const { type, url, description } = action
+  switch (type) {
     case 'EDIT_TITLE':
       return {
-        url: action.url,
-        description: action.description
+        url,
+        description,
       }
     default:
       return state
