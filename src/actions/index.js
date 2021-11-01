@@ -1,33 +1,37 @@
 let id = 0
 
-export const ADD_TO_DO = 'ADD_TO_DO'
-export const TOGGLE_TO_DO = 'TOGGLE_TO_DO'
+export const ADD_POST = 'ADD_POST'
+export const EDIT_POST = 'EDIT_POST'
+export const DELETE_POST = 'DELETE_POST'
 export const SET_STATUS = 'SET_STATUS'
 
-export const addTodo = input => ({
-  type: ADD_TO_DO,
+export const addPost = input => ({
+  type: ADD_POST,
   id: id++,
-  todo: input,
-  completed: false,
+  title: input.title,
+  url: input.url,
+  description: input.description,
 })
 
-export const toggleTodo = uid => ({
-  type: TOGGLE_TO_DO,
-  uid,
+export const editPost = input => ({
+  type: EDIT_POST,
+  id: input.id,
+  title: input.title,
+  url: input.url,
+  description: input.description,
 })
 
-export const STATUS = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE',
-}
-
-export const setStatus = status => ({
-  type: SET_STATUS,
-  status,
+export const deletePost = input => ({
+  type: DELETE_POST,
+  id: input.id,
 })
 
 export const editTop = input => ({
   type: 'EDIT_TOP',
   top: input,
+})
+
+export const setStatus = status => ({
+  type: 'SET_STATUS',
+  status,
 })

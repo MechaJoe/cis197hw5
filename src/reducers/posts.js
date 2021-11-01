@@ -1,21 +1,28 @@
-import { ADD_TO_DO, TOGGLE_TO_DO } from '../actions'
+import { ADD_POST, EDIT_POST, DELETE_POST } from '../actions'
 
 const default_state = []
 
 const PostReducer = (state = default_state, action) => {
-  const { type, id, todo, completed } = action
+  const {
+    type, id, title, url, description,
+  } = action
 
   switch (type) {
-    case ADD_TO_DO:
-      return [...state, { id, todo, completed }]
-    case TOGGLE_TO_DO:
-      return state.map(todo => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed }
+    case ADD_POST:
+      return [...state, {
+        id, title, url, description,
+      }]
+    case EDIT_POST:
+      return state.map(post => {
+        if (post.id === id) {
+          return {
+            ...post, title, url, description,
+          }
         }
-
-        return todo
+        return post
       })
+    case DELETE_POST:
+      return state.filter(post => post.id !== id)
     default:
       return state
   }
