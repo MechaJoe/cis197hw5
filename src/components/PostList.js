@@ -14,10 +14,19 @@ const PostList = ({
     <>
       <h1>Posts</h1>
       <div>{addingPost && <AddPostInput setAddingPost={setAddingPost} />}</div>
-      <button type="button" onClick={() => setAddingPost(true)}>Add Post</button>
+      <button
+        type="button"
+        onClick={() => {
+          setAddingPost(true)
+          // console.log(posts)
+        }}
+      >
+        Add Post
+
+      </button>
       <div>
         {posts && posts.map(post => (
-          <Post key={post.id} id={post.id} />
+          <Post key={post.id} id={post.id} posts={posts} />
         ))}
 
       </div>
