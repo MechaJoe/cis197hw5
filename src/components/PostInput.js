@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import { editPost, deletePost } from '../actions'
 
 const PostInput = ({
-  id, posts, dispatchEditPost, dispatchDeletePost, setEditing,
+  id, posts, dispatchEditPost, setEditing,
 }) => {
   const [{ title, url, description }] = posts.filter(post => post.id === id)
   const [tempTitle, setTitle] = useState(title)
@@ -19,7 +21,7 @@ const PostInput = ({
   return (
     <div className="postinput">
       <div>
-        <input
+        <TextField
           type="text"
           value={tempTitle}
           onChange={e => {
@@ -29,17 +31,19 @@ const PostInput = ({
         />
 
       </div>
-      <div><input type="text" value={tempUrl} onChange={e => setUrl(e.target.value)} /></div>
-      <div><input type="text" value={tempDescription} onChange={e => setDescription(e.target.value)} /></div>
-      <button
+      <div><TextField type="text" value={tempUrl} onChange={e => setUrl(e.target.value)} /></div>
+      <div><TextField type="text" value={tempDescription} onChange={e => setDescription(e.target.value)} /></div>
+      <Button
         type="submit"
+        variant="contained"
         onClick={() => {
           handleEdit()
           setEditing(false)
         }}
       >
         Submit
-      </button>
+      </Button>
+      <Button type="button" onClick={() => setEditing(false)}>Cancel</Button>
     </div>
   )
 }

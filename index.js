@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './src/App'
+import '@fontsource/roboto'
 
 import rootReducer from './src/reducers'
 

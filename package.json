@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/MechaJoe/cis197hw5#readme",
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/roboto": "^4.5.1",
     "@mui/material": "^5.0.6",
     "@reduxjs/toolkit": "^1.6.2",
     "babel-eslint": "^10.1.0",
@@ -28,7 +32,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "typeface-roboto": "^1.1.13"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.21.2",

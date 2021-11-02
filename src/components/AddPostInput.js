@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import { addPost } from '../actions'
 
 const AddPostInput = ({ dispatchAddPost, setAddingPost }) => {
@@ -12,13 +14,13 @@ const AddPostInput = ({ dispatchAddPost, setAddingPost }) => {
       <>
         <h3>Edit Post</h3>
         <p>Title</p>
-        <input onChange={e => setTitle(e.target.value)} value={title} />
+        <TextField onChange={e => setTitle(e.target.value)} value={title} />
         <p>Image URL</p>
-        <input onChange={e => setUrl(e.target.value)} value={url} />
+        <TextField onChange={e => setUrl(e.target.value)} value={url} />
         <p>Description</p>
-        <input onChange={e => setDescription(e.target.value)} value={description} />
+        <TextField onChange={e => setDescription(e.target.value)} value={description} />
         <div>
-          <button
+          <Button
             type="button"
             onClick={() => {
               setAddingPost(false)
@@ -26,7 +28,7 @@ const AddPostInput = ({ dispatchAddPost, setAddingPost }) => {
             }}
           >
             Submit
-          </button>
+          </Button>
         </div>
       </>
 

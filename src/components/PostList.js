@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 import {
   addPost, editPost, deletePost, setStatus,
 } from '../actions'
@@ -12,18 +14,20 @@ const PostList = ({
   const [addingPost, setAddingPost] = useState(false)
   return (
     <>
-      <h1>Posts</h1>
+      <Typography variant="h2">Posts</Typography>
       <div>{addingPost && <AddPostInput setAddingPost={setAddingPost} />}</div>
-      <button
+      {!addingPost && (
+      <Button
         type="button"
+        variant="contained"
         onClick={() => {
           setAddingPost(true)
           // console.log(posts)
         }}
       >
         Add Post
-
-      </button>
+      </Button>
+      )}
       <div>
         {posts && posts.map(post => (
           <Post key={post.id} id={post.id} posts={posts} />

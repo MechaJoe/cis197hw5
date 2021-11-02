@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 import {
   addPost, editPost, deletePost, setStatus,
 } from '../actions'
@@ -18,14 +20,17 @@ const Post = ({ id, posts, dispatchDeletePost }) => {
         <>
           <img src={url} alt="" width="100px" height="100px" />
           <div>
-            <h3>{title}</h3>
+            <Typography>{`Post #: ${id}`}</Typography>
           </div>
           <div>
-            <p>{description}</p>
+            <Typography variant="h3">{title}</Typography>
+          </div>
+          <div>
+            <Typography variant="body">{description}</Typography>
           </div>
         </>
-        <button type="submit" onClick={e => setEditing(true)}>Edit</button>
-        <button type="button" onClick={() => handleDelete()}>Delete</button>
+        <Button type="submit" onClick={e => setEditing(true)} color="secondary">Edit</Button>
+        <Button type="button" onClick={() => handleDelete()} color="error">Delete</Button>
       </div>
       )}
       {editing && (<PostInput id={id} posts={posts} setEditing={setEditing} />)}
