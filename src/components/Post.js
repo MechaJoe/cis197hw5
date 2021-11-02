@@ -35,7 +35,6 @@ const Post = ({ id, posts, dispatchDeletePost }) => {
 
 const mapStateToProps = state => ({
   posts: state.posts,
-  status: state.status,
 })
 
 const mapDispatchToProps = dispatch => ({

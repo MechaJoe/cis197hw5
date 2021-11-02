@@ -19,15 +19,16 @@
   },
   "homepage": "https://github.com/MechaJoe/cis197hw5#readme",
   "dependencies": {
+    "@mui/material": "^5.0.6",
     "@reduxjs/toolkit": "^1.6.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
     "parcel-bundler": "^1.12.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
-    "redux": "^4.1.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "babel-eslint": "^10.1.0"
+    "redux": "^4.1.2"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.21.2",

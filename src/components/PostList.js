@@ -36,7 +36,6 @@ const PostList = ({
 
 const mapStateToProps = state => ({
   posts: state.posts,
-  status: state.status,
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -11,7 +11,7 @@ const PostInput = ({
   const [tempDescription, setDescription] = useState(description)
   const handleEdit = () => {
     dispatchEditPost({
-      id, tempTitle, tempUrl, tempDescription,
+      id, title: tempTitle, url: tempUrl, description: tempDescription,
     })
     console.log(id, tempTitle, tempUrl, tempDescription)
   }
@@ -21,7 +21,7 @@ const PostInput = ({
       <div>
         <input
           type="text"
-          value={title}
+          value={tempTitle}
           onChange={e => {
             setTitle(e.target.value)
             console.log(tempTitle)
@@ -46,10 +46,6 @@ const PostInput = ({
 
 const mapStateToProps = state => ({
   posts: state.posts,
-  // status: state.status,
-  // title: state.title,
-  // url: state.url,
-  // description: state.description,
 })
 
 const mapDispatchToProps = dispatch => ({
