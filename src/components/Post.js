@@ -6,9 +6,8 @@ import {
 import PostInput from './PostInput'
 
 const Post = ({ id, posts, dispatchDeletePost }) => {
-  const { title, url, description } = posts.filter(post => post.id === id)
+  const [{ title, url, description }] = posts.filter(post => post.id === id)
   const handleDelete = () => {
-    console.log(title, url, description)
     dispatchDeletePost({ id })
   }
   const [editing, setEditing] = React.useState(false)
@@ -29,7 +28,7 @@ const Post = ({ id, posts, dispatchDeletePost }) => {
         <button type="button" onClick={() => handleDelete()}>Delete</button>
       </div>
       )}
-      {editing && (<PostInput id={id} setEditing={setEditing} />)}
+      {editing && (<PostInput id={id} posts={posts} setEditing={setEditing} />)}
     </>
   )
 }

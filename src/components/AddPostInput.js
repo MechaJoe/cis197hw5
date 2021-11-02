@@ -38,6 +38,7 @@ const mapStateToProps = state => ({
   title: state.title,
   url: state.url,
   description: state.description,
+  posts: state.posts,
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { editPost, deletePost } from '../actions'
 
 const PostInput = ({
-  id, title, url, description, dispatchEditPost, dispatchDeletePost, setEditing,
+  id, posts, dispatchEditPost, dispatchDeletePost, setEditing,
 }) => {
+  const [{ title, url, description }] = posts.filter(post => post.id === id)
   const [tempTitle, setTitle] = useState(title)
   const [tempUrl, setUrl] = useState(url)
   const [tempDescription, setDescription] = useState(description)
@@ -17,9 +18,19 @@ const PostInput = ({
 
   return (
     <div className="postinput">
-      <div><input type="text" value={title} onChange={e => setTitle(e.target.value)} /></div>
-      <div><input type="text" value={url} onChange={e => setUrl(e.target.value)} /></div>
-      <div><input type="text" value={description} onChange={e => setDescription(e.target.value)} /></div>
+      <div>
+        <input
+          type="text"
+          value={title}
+          onChange={e => {
+            setTitle(e.target.value)
+            console.log(tempTitle)
+          }}
+        />
+
+      </div>
+      <div><input type="text" value={tempUrl} onChange={e => setUrl(e.target.value)} /></div>
+      <div><input type="text" value={tempDescription} onChange={e => setDescription(e.target.value)} /></div>
       <button
         type="submit"
         onClick={() => {
@@ -35,12 +46,15 @@ const PostInput = ({
 
 const mapStateToProps = state => ({
   posts: state.posts,
-  status: state.status,
+  // status: state.status,
+  // title: state.title,
+  // url: state.url,
+  // description: state.description,
 })
 
 const mapDispatchToProps = dispatch => ({
-  dispatchEditPost: id => dispatch(editPost(id)),
-  dispatchDeletePost: id => dispatch(deletePost(id)),
+  dispatchEditPost: input => dispatch(editPost(input)),
+  dispatchDeletePost: input => dispatch(deletePost(input)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostInput)
